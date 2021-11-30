@@ -1,0 +1,354 @@
+*{
+  box-sizing: border-box;
+  margin:0;
+}
+
+.header {
+  background-color: rgba(0, 0, 0, 0.849);
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.left{
+  display: flex;
+}
+
+.right{
+  display: flex;
+}
+
+.webname{
+  padding: 1px 0px 0px 20px;
+  font-family: 'Pacifico', cursive;
+  font-size: 33px;
+  color: red;
+}
+
+.header a {
+  float: left;
+  color: white;
+  /* text-align: center; */
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 4px;
+}
+
+.logo {
+  border-radius: 50%;
+  height: 50px;
+}
+
+.header a:hover {
+  background-color: rgba(221, 221, 221, 0.466);
+  color: aqua;
+}
+
+.middle a {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.right a {
+  background-color: red;
+  margin: 0 5px;
+}
+
+
+
+@media all and (max-width: 650px){
+  .header{
+    flex-direction: column;
+    display: inline-block;
+  }  
+  .left img{
+    margin: auto 0px auto auto;
+  }
+  .left div{
+    margin: auto auto auto 0px;
+  }
+  .right{
+    float:right;
+  }
+
+}
+
+.hero {
+  position: relative;
+  height: 515px;
+  width: 100%;
+}
+
+.image{
+  height: 515px;
+  width: 100%;
+}
+
+.subimage{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 4px solid black;
+  height: 380px;
+}
+
+.slides{
+  display: none;
+  height: 515px;
+  width: 100%;
+  background: url(/pictures/heroBackground.jpg);
+}
+
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 45%;
+  width: auto;
+  margin: -22px 60px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.Centeredtext{
+  font-family: 'Lobster', cursive;
+  color: aqua;
+  font-size: 90px;
+  text-align: center; 
+  padding-top: 180px;
+}
+
+.subtext{
+  font-family: 'Lobster', cursive;
+  color: darkblue;
+  font-size: 45px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 40px;
+  width: 100%;
+  text-align: center;
+}
+
+.tital{
+  margin: 20px ;
+  text-align: center;
+  font-family: 'Lobster', cursive;
+  color: darkblue;
+  font-size: 50px;
+}
+
+.flexcards{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1000px;
+}
+
+body{
+  background-color:lavender;
+}
+
+.cards {
+  width: 400px;
+  margin-bottom: 25px;
+  margin-right: 25px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  max-width: 400px;
+  background-color:khaki;
+}
+
+.cards:hover{
+  transform: scale(0.95);
+  filter: brightness(70%);
+  -webkit-filter: brightness(70%);
+  transition: all 1s ease;
+}
+
+.card-img {
+  width: 400px;
+  height: 300px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+}
+
+.para{
+  font-family: 'Raleway', sans-serif;
+  margin:10px 10px;
+}
+
+.prc{
+  color:red;
+  margin:10px 10px;
+}
+.cards h2{
+  text-align: center;
+}
+
+body {
+  font-family: "Roboto", sans-serif !important;
+  margin: 0;
+  padding: 0;
+}
+
+/*Styling Form box part*/
+
+.bottompart {
+  height: 110vh;
+  width: 98.8vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  background: url("/pictures/background.jpg") no-repeat;
+  background-size: cover;
+  background-color: #fff;
+  position: relative;
+}
+
+
+.formpart {
+  width: 450px;
+  background-color:whitesmoke;
+  box-shadow: 4px 3px 20px #3535358c;
+  border-radius: 10px;
+  padding: 2rem 2rem 4rem;
+}
+
+.formpart form h2 {
+
+  font-family: 'Libre Baskerville', serif;
+  font-size: 35px;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+label {
+  
+  font-family: 'Libre Baskerville', serif;
+  font-size: 15px;
+  display: block;
+}
+
+.inputbox {
+  width: 340px;
+  padding: 0.5rem;
+  border: 2px solid #b9b6b6;
+  margin-bottom: 0.6rem;
+  border-radius: 0.3rem;
+  font-family: "Roboto", sans-serif;
+  color: #615a5a;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.radios{
+  display: flex;
+}
+
+.submit-button {
+  display: block;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  letter-spacing: 1px;
+  height: 38px;
+  width: 340px;
+  line-height: 38px;
+  overflow: hidden;
+  background: #4dbecf;
+  border-radius: 3px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  border: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 5px;
+}
+
+.footer {
+  
+  overflow: hidden;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px;
+  font-size: 16px;
+  justify-content: center;
+}
+
+.footer li{
+  list-style: none;
+  color: gainsboro;
+}
+
+.footer ul{
+  margin: 10px 50px;
+
+}
+
+.footer a{
+  text-decoration: underline;
+  color: gainsboro;
+}
+
+.ftital{
+  font-weight: bold;
+  font-size: 18px;
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.copyright{
+  background-color: black;
+  color: gainsboro;
+  text-align:center;
+  font-size: 16px;
+}
+
+.ftable {
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
+.boldone {
+  color: darkblue;
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+.ftable tr {
+  font-size: larger;
+}
+
+
+.welcome{
+  height: 48vh;
+  width: 100vw;
+}
+

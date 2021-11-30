@@ -1,0 +1,14 @@
+<div class="tital">
+  FoodHub's Top Meals
+</div>
+
+<div class="flexcards">
+  {{#each mealkits}}
+      <div class="cards">
+        <img src = {{image_url}} alt="" class="card-img" />
+        <h2 class="cardTital">{{tital}}</h2>
+        <p class="para">{{descrition}}</p>
+        <h3 class="prc">{{price}}</h2>
+      </div>
+    {{/each}}
+</div>

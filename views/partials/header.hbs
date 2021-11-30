@@ -1,0 +1,23 @@
+<header>
+  <nav class= "header">
+      <div class="left">
+        <img class="logo" src="/pictures/logo.png" alt="" height="150" />
+        <div class="webname">FoodHub</div>
+      </div>
+      
+      <div class="middle">
+        <a href="/">Home</a>
+        <a href="/onthemenu">On the menu</a>
+      </div>
+     
+      <div class="right">
+        {{#if user}}
+            <a href="/user/logout">Logout</a>
+        {{else}}
+            <a href="/user/sign-in">Login</a>
+            <a href="/user/registration">Register</a>
+        {{/if}}
+      </div>
+  </nav>
+</header>
+
