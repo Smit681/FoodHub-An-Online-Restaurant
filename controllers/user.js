@@ -2,6 +2,7 @@ const userModel = require("../models/user");
 const bcrypt = require("bcryptjs");
 const path = require("path");
 const express = require("express");
+const session = require("express-session");
 const router = express.Router();
 
 // Set up a registration page
@@ -24,9 +25,6 @@ router.post("/registration", (req, res) => {
         validation.lastname = "Please Enter Lastname Here!"
     }
 
-    //There are plety of possibilities in email validation. I could include just basic onces like it should have @, prefix and domain, all 3 part in it. There should not be space. 
-    //I found different variation on stack overflow but didn't understand.
-    //I believe validating email address using regular expression will create bad user experience. Instead I would use just the basic regular expression and use varification email. 
     function validateEmail(email) {
         const re = /^\S+@\S+\.\S+$/;
         return re.test(String(email).toLowerCase());
@@ -38,13 +36,6 @@ router.post("/registration", (req, res) => {
 
     function validatePassword(password) {
         const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@%$?&]).{6,12}$/;
-        /**
-         * (?=.*[a-z]) aleast one small letter
-         * (?=.*[A-Z]) atleast one capital letter
-         * (?=.*\d) atleast one number
-         * (?=.*[!@%$?&]) aleast one symbol
-         * {6,12}  lenght should be between 6 and 12
-         */
         return re.test(String(password));
     }
     if (typeof password !== 'string' || validatePassword(password) == false) {
@@ -100,9 +91,21 @@ router.post("/registration", (req, res) => {
             validation
         });
     }
-
-
 });
+
+//Set up the customer dashbord
+router.get("/dashbord/customer", (req,res) => {
+    res.render("dashbord/customer",{
+        dashbord : req.session.dashbord
+    });
+})
+
+//Set up the data clerk dashbord
+router.get("/dashbord/data_cleak", (req,res) => {
+    res.render("dashbord/data_cleak",{
+        dashbord : req.session.dashbord
+    });
+})
 
 // Set up the login page
 router.get("/sign-in", (req, res) => {
@@ -122,10 +125,6 @@ router.post("/sign-in", (req, res) => {
     if (typeof password !== 'string' || password.trim().length === 0) {
         valid = false;
         validation.password = "Please Enter Password Here!"
-    }
-    if (typeof choose !== 'string' || choose.trim().length === 0) {
-        valid = false;
-        validation.choose = "Please choose one!"
     }
 
     if (valid) {
@@ -150,20 +149,12 @@ router.post("/sign-in", (req, res) => {
                                 // Create a new session and store the user document (object)
                                 // to the session.
                                 req.session.user = user;
-                              
-                                if(choose == "Customer")
-                                    res.render("dashbord/customer",{
-                                        firstname: user.firstName,
-                                        lastname: user.lastName,
-                                        values:req.body
-                                    })
+                                req.session.dashbord = choose;
+                                if(req.session.dashbord == "Customer")
+                                    res.redirect("/user/dashbord/customer");
                                 else{
-                                res.render("dashbord/data_cleak",{
-                                    firstname: user.firstName,
-                                    lastname: user.lastName,
-                                    values:req.body
-                                })
-                            }
+                                    res.redirect("/user/dashbord/data_cleak");
+                                }
                             }
                             else {
                                 // Passwords to not match.
@@ -213,6 +204,8 @@ router.post("/sign-in", (req, res) => {
         });
     }
 });
+
+
 
 router.get("/logout", (req, res) => {
     // Clear the session from memory.

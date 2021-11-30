@@ -1,29 +1,6 @@
-<style>
-    .right {
-        display: none;
-    }
-    footer {
-        position: fixed;
-        bottom: 0%;
-        width: 100%;
-    }
-    .logout {
-        padding: 12px;
-        text-decoration: none;
-        font-size: 18px;
-        border-radius: 4px;
-        background-color: red;
-        color: black;
-        font-size: 30px;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-</style>
-
 <div class="welcome">
     <div class="tital">
-        Hello {{firstname}} {{lastname}},
-        We welcome you back as our valued {{values.choose}}!!
-        <br>
-        <a class="logout" href="/user/logout">Logout</a>
+        Hello {{user.firstName}} {{user.lastName}},
+        We welcome you back as our valued {{dashbord}}!!
     </div>
 </div>

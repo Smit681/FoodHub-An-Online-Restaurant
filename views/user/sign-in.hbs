@@ -19,18 +19,11 @@
             {{/if}}
             <br>
             <div class="radios">
-                <input type="radio" id="customer" name="choose" value = "Customer">
-                &ensp;
-                <label for="customer">Customer</label><br>
-                &emsp;
+                <input type="radio" id="customer" name="choose" value = "Customer" checked>&ensp;
+                <label for="customer">Customer</label><br>&emsp;
                 <input type="radio" id="admin" name="choose" value = "Data Entry Clerk">
                 <label for="admin">Data Entry Clerk</label><br>
             </div>
-            {{#if validation.choose}}
-             <span style="color: red;">{{validation.choose}}</span><br/>
-            {{/if}}
-            
-
             <button class="submit-button state-0"><span class="pre-state-msg">Submit</span></button>
         </form>
     </div>
