@@ -9,8 +9,8 @@
 * Course/Section: WEB322 ZAA
 * 
 * ## Project URLs
-* GitHub Repository: https://github.com/Smit681/Web322-Assignment-4
-* Heroku URL: https://web322-assignment-4.herokuapp.com/
+* GitHub Repository: https://github.com/Smit681/Assignment-5
+* Heroku URL: https://web-322-assignment-5.herokuapp.com/
 ************************************************************************************/
 
 const express = require("express");

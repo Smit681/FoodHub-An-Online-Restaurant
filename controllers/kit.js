@@ -34,7 +34,7 @@ router.post("/add", (req,res) => {
    
     newkit.save()
     .then((saved) => {
-        if(path.parse(req.files.pic.name).ext == 'jpeg' || path.parse(req.files.pic.name).ext == 'jpg' || path.parse(req.files.pic.name).ext == "HEIF")
+        if(path.parse(req.files.pic.name).ext == '.jpeg' || path.parse(req.files.pic.name).ext == '.jpg' || path.parse(req.files.pic.name).ext == ".HEIF")
         {
         // Create a unique name for the image, so it can be stored in the file system.
         let uniqueName = `/image-pic-${saved._id}${path.parse(req.files.pic.name).ext}`;
