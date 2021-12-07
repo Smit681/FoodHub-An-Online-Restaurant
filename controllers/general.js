@@ -1,5 +1,5 @@
 const express = require("express");
-const mealKitmodel = require('../models/data.js');
+const mealKitmodel = require('../models/kit');
 const router = express.Router();
 
 // Route to the default home page

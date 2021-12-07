@@ -16,6 +16,7 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
 const session = require("express-session");
+const fileUpload = require("express-fileupload");
 const dotenv = require("dotenv");
 const mongoose = require('mongoose');
 const path = require("path");
@@ -31,6 +32,9 @@ app.use(express.static("public"));
 
 // Set up body-parser
 app.use(express.urlencoded({extended:false}));
+
+//Set up file-uploads
+app.use(fileUpload());
 
 // Set up handlebars
 app.engine('.hbs', exphbs({ 
@@ -51,15 +55,23 @@ app.use((req, res, next) => {
     // res.locals.user is a global handlebars variable.
     // This means that every single handlebars file can access this variable.
     res.locals.user = req.session.user;
+    if(req.session.dashbord == "Data Entry Clerk")
+        res.locals.dashbord = true;
+    else
+        res.locals.dashbord = false;
     next();
 });
 
 // Set up routes/controllers
 const generalController = require("./controllers/general");
 const userController = require("./controllers/user");
+const kitController = require("./controllers/kit");
+const loadDataController = require("./controllers/load-data");
 
 app.use("/", generalController);
 app.use("/user/", userController);
+app.use("/kit/",kitController);
+app.use("/load-data/", loadDataController);
 
 // Set up and connect to MongoDB
 mongoose.connect(process.env.MONGO_DB_CONNECTION_STRING, {
