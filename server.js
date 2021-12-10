@@ -48,7 +48,8 @@ app.set('view engine', '.hbs');
 app.use(session({
     secret: process.env.SESSION_KEY,
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+    duration : 2000
 }));
 
 app.use((req, res, next) => {
@@ -56,9 +57,10 @@ app.use((req, res, next) => {
     // This means that every single handlebars file can access this variable.
     res.locals.user = req.session.user;
     if(req.session.dashbord == "Data Entry Clerk")
-        res.locals.dashbord = true;
+        res.locals.can = true;
     else
-        res.locals.dashbord = false;
+        res.locals.can = false;
+    
     next();
 });
 

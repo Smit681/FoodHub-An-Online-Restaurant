@@ -14,7 +14,9 @@
 
         
         {{#if user}}
+          {{#if can}}
               <a href="/kit/modify">Modify Mealkit</a>
+          {{/if}}
             <a href="/user/logout">Logout</a>
         {{else}}
             <a href="/user/sign-in">Login</a>

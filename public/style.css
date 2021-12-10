@@ -228,6 +228,12 @@ body {
   position: relative;
 }
 
+.modifyTital{
+  font-size:xx-large;
+  margin: 20px;
+  font-weight: bold;
+  cursor:pointer;
+}
 
 .formpart {
   width: 450px;
@@ -235,6 +241,23 @@ body {
   box-shadow: 4px 3px 20px #3535358c;
   border-radius: 10px;
   padding: 2rem 2rem 4rem;
+  margin: 30px auto;
+}
+
+.addkit input{
+  margin: 10px auto;
+  text-align: center;
+}
+
+.updatekit input{
+  margin-bottom: 10px;
+}
+.formpart input{
+  display: block;
+}
+
+.formpart form{
+  left: 50%;
 }
 
 .formpart form h2 {
@@ -289,8 +312,9 @@ label {
   margin-top: 5px;
 }
 
+
+
 .footer {
-  
   overflow: hidden;
   background-color: black;
   color: white;
@@ -410,34 +434,4 @@ width: 98.8vw;
   display: inline-block;
   margin-left: 12rem;
   margin-bottom: 10rem;
-}
-
-
-.updateform {
-  width: 450px;
-  border-radius: 10px;
-  padding: 2rem 2rem 4rem;
-  background: #fff;
-  display: inline-block;
-  margin-right: 12rem;
-  float: right;
-  margin-bottom: 10rem;
-}
-
-.addform form h2 {
-
-  font-family: 'Libre Baskerville', serif;
-  font-size: 35px;
-  margin-bottom: 1rem;
-  text-align: center;
-  font-weight: 600;
-}
-
-.updateform form h2 {
-
-  font-family: 'Libre Baskerville', serif;
-  font-size: 35px;
-  margin-bottom: 1rem;
-  text-align: center;
-  font-weight: 600;
 }
