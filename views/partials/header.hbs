@@ -16,6 +16,8 @@
         {{#if user}}
           {{#if can}}
               <a href="/kit/modify">Modify Mealkit</a>
+          {{else}}
+             <button  class="btn" style="background-color: red; color:white" onclick="window.location.href = '/cart/shopping-cart' ">shopping cart</button>
           {{/if}}
             <a href="/user/logout">Logout</a>
         {{else}}

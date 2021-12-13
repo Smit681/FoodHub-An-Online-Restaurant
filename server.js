@@ -69,11 +69,13 @@ const generalController = require("./controllers/general");
 const userController = require("./controllers/user");
 const kitController = require("./controllers/kit");
 const loadDataController = require("./controllers/load-data");
+const cartController = require("./controllers/cart");
 
 app.use("/", generalController);
 app.use("/user/", userController);
 app.use("/kit/",kitController);
 app.use("/load-data/", loadDataController);
+app.use("/cart/", cartController);
 
 // Set up and connect to MongoDB
 mongoose.connect(process.env.MONGO_DB_CONNECTION_STRING, {

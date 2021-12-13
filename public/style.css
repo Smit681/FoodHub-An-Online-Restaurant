@@ -315,12 +315,10 @@ label {
 
 
 .footer {
-  overflow: hidden;
   background-color: black;
   color: white;
   display: flex;
   flex-wrap: wrap;
-  margin: 0px;
   font-size: 16px;
   justify-content: center;
 }
