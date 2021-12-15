@@ -1,59 +1,20 @@
-<button class ="modifyTital" onclick = "window.location.href= '/kit/add'">Add Mealkit</button>
+<button class="modifyTital" onclick="window.location.href= '/kit/add'">Add
+  Mealkit</button>
 
 <div class="tital" style="text-align: left;">
-    Mealkits
+  Mealkits
 </div>
-<div >
-    <ol>
+<div>
+  <ol>
     {{#each kits}}
-    <div>
+      <div>
         <li>{{this.tital}}</li>
-    <button onclick = "window.location.href='/kit/update/{{this._id}}'">Update</button> 
-    </div>
-    
+        <button
+          onclick="window.location.href='/kit/update/{{this._id}}'"
+        >Update</button>
+      </div>
+
     {{/each}}
-</ol>
+  </ol>
 
 </div>
-
-
-
-
-
-
-    {{!-- <div class="updateform">
-        <form action="/kit/update" method="post" enctype="multipart/form-data">
-            <h2>Update existing mealkit</h2>
-            <label for="Title">Title</label>
-            <input type="text" id="Title" name="Title">
-
-            <label for="ing">Ingredients</label>
-            <input type="text" id="ing" name="ing">
-
-            <label for="des">Description</label>
-            <input type="text" id="des" name="des">
-
-            <label for="cat">Category</label>
-            <input type="text" id="cat" name="cat">
-
-            <label for="price"> Price</label>
-            <input type="text" id="price" name="price">
-
-            <label for="time">Cooking time</label>
-            <input type="text" id="time" name="time">
-
-            <label for="ser">Servings</label>
-            <input type="text" id="ser" name="ser">
-
-            <label for="cal">Calories</label>
-            <input type="text" id="cal" name="cal">
-
-            <label for="top">Is is top meal?</label>
-            <input type="text" id="top" name="top">
-
-            <label for="pic">Picture</label>
-            <input type="file" id="pic" name="pic">
-
-            <button type="submit" class="submit-button state-0">Submit</button>
-        </form>
-</div> --}}

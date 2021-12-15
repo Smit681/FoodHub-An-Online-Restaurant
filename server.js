@@ -22,7 +22,7 @@ const mongoose = require('mongoose');
 const path = require("path");
 
 // Set up dotenv environment variables.
-dotenv.config({path: "./config.env"});
+dotenv.config({ path: "./config.env" });
 
 // Set up express
 const app = express();
@@ -31,13 +31,13 @@ const app = express();
 app.use(express.static("public"));
 
 // Set up body-parser
-app.use(express.urlencoded({extended:false}));
+app.use(express.urlencoded({ extended: false }));
 
 //Set up file-uploads
 app.use(fileUpload());
 
 // Set up handlebars
-app.engine('.hbs', exphbs({ 
+app.engine('.hbs', exphbs({
     extname: '.hbs',
     defaultLayout: "main"
 }));
@@ -49,18 +49,17 @@ app.use(session({
     secret: process.env.SESSION_KEY,
     resave: false,
     saveUninitialized: true,
-    duration : 2000
+    duration: 2000
 }));
 
 app.use((req, res, next) => {
     // res.locals.user is a global handlebars variable.
     // This means that every single handlebars file can access this variable.
     res.locals.user = req.session.user;
-    if(req.session.dashbord == "Data Entry Clerk")
+    if (req.session.dashbord == "Data Entry Clerk")
         res.locals.can = true;
     else
         res.locals.can = false;
-    
     next();
 });
 
@@ -73,7 +72,7 @@ const cartController = require("./controllers/cart");
 
 app.use("/", generalController);
 app.use("/user/", userController);
-app.use("/kit/",kitController);
+app.use("/kit/", kitController);
 app.use("/load-data/", loadDataController);
 app.use("/cart/", cartController);
 
@@ -82,12 +81,12 @@ mongoose.connect(process.env.MONGO_DB_CONNECTION_STRING, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
-.then(() => {
-    console.log("Connected to the MongoDB database.");
-})
-.catch((err) => {
-    console.log(`There was a problem connecting to MongoDB ... ${err}`);
-});
+    .then(() => {
+        console.log("Connected to the MongoDB database.");
+    })
+    .catch((err) => {
+        console.log(`There was a problem connecting to MongoDB ... ${err}`);
+    });
 
 // Start up express web server
 const PORT = process.env.PORT || 8080;

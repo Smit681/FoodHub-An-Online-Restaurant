@@ -1,30 +1,32 @@
 <header>
-  <nav class= "header">
-      <div class="left">
-        <img class="logo" src="/pictures/logo.png" alt="" height="150" />
-        <div class="webname">FoodHub</div>
-      </div>
-      
-      <div class="middle">
-        <a href="/">Home</a>
-        <a href="/onthemenu">On the menu</a>
-      </div>
-     
-      <div class="right">
+  <nav class="header">
+    <div class="left">
+      <img class="logo" src="/pictures/logo.png" alt="" height="150" />
+      <div class="webname">FoodHub</div>
+    </div>
 
-        
-        {{#if user}}
-          {{#if can}}
-              <a href="/kit/modify">Modify Mealkit</a>
-          {{else}}
-             <button  class="btn" style="background-color: red; color:white" onclick="window.location.href = '/cart/shopping-cart' ">shopping cart</button>
-          {{/if}}
-            <a href="/user/logout">Logout</a>
+    <div class="middle">
+      <a href="/">Home</a>
+      <a href="/onthemenu">On the menu</a>
+    </div>
+
+    <div class="right">
+
+      {{#if user}}
+        {{#if can}}
+          <a href="/kit/modify">Modify Mealkit</a>
         {{else}}
-            <a href="/user/sign-in">Login</a>
-            <a href="/user/registration">Register</a>
+          <button
+            class="btn"
+            style="background-color: red; color:white"
+            onclick="window.location.href = '/cart/shopping-cart' "
+          >shopping cart</button>
         {{/if}}
-      </div>
+        <a href="/user/logout">Logout</a>
+      {{else}}
+        <a href="/user/sign-in">Login</a>
+        <a href="/user/registration">Register</a>
+      {{/if}}
+    </div>
   </nav>
 </header>
-

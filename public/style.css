@@ -1,6 +1,6 @@
-*{
+* {
   box-sizing: border-box;
-  margin:0;
+  margin: 0;
 }
 
 .header {
@@ -12,17 +12,17 @@
   align-items: center;
 }
 
-.left{
+.left {
   display: flex;
 }
 
-.right{
+.right {
   display: flex;
 }
 
-.webname{
+.webname {
   padding: 1px 0px 0px 20px;
-  font-family: 'Pacifico', cursive;
+  font-family: "Pacifico", cursive;
   font-size: 33px;
   color: red;
 }
@@ -57,23 +57,20 @@
   margin: 0 5px;
 }
 
-
-
-@media all and (max-width: 650px){
-  .header{
+@media all and (max-width: 650px) {
+  .header {
     flex-direction: column;
     display: inline-block;
-  }  
-  .left img{
+  }
+  .left img {
     margin: auto 0px auto auto;
   }
-  .left div{
+  .left div {
     margin: auto auto auto 0px;
   }
-  .right{
-    float:right;
+  .right {
+    float: right;
   }
-
 }
 
 .hero {
@@ -82,12 +79,12 @@
   width: 100%;
 }
 
-.image{
+.image {
   height: 515px;
   width: 100%;
 }
 
-.subimage{
+.subimage {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -95,15 +92,15 @@
   height: 380px;
 }
 
-.slides{
+.slides {
   display: none;
   height: 515px;
   width: 100%;
   background: url(/pictures/heroBackground.jpg);
 }
 
-
-.prev, .next {
+.prev,
+.next {
   cursor: pointer;
   position: absolute;
   top: 45%;
@@ -123,20 +120,21 @@
   border-radius: 3px 0 0 3px;
 }
 
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
-.Centeredtext{
-  font-family: 'Lobster', cursive;
+.Centeredtext {
+  font-family: "Lobster", cursive;
   color: aqua;
   font-size: 90px;
-  text-align: center; 
+  text-align: center;
   padding-top: 180px;
 }
 
-.subtext{
-  font-family: 'Lobster', cursive;
+.subtext {
+  font-family: "Lobster", cursive;
   color: darkblue;
   font-size: 45px;
   padding: 8px 12px;
@@ -146,15 +144,15 @@
   text-align: center;
 }
 
-.tital{
-  margin: 20px ;
+.tital {
+  margin: 20px;
   text-align: center;
-  font-family: 'Lobster', cursive;
+  font-family: "Lobster", cursive;
   color: darkblue;
   font-size: 50px;
 }
 
-.flexcards{
+.flexcards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -163,8 +161,8 @@
   max-width: 1000px;
 }
 
-body{
-  background-color:lavender;
+body {
+  background-color: lavender;
 }
 
 .cards {
@@ -175,14 +173,15 @@ body{
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   max-width: 400px;
-  background-color:khaki;
+  background-color: khaki;
 }
 
-.cards:hover{
+.cards:hover {
   transform: scale(0.95);
   filter: brightness(70%);
   -webkit-filter: brightness(70%);
   transition: all 1s ease;
+  cursor: pointer;
 }
 
 .card-img {
@@ -194,16 +193,16 @@ body{
   border-radius: 10px;
 }
 
-.para{
-  font-family: 'Raleway', sans-serif;
-  margin:10px 10px;
+.para {
+  font-family: "Raleway", sans-serif;
+  margin: 10px 10px;
 }
 
-.prc{
-  color:red;
-  margin:10px 10px;
+.prc {
+  color: red;
+  margin: 10px 10px;
 }
-.cards h2{
+.cards h2 {
   text-align: center;
 }
 
@@ -228,41 +227,40 @@ body {
   position: relative;
 }
 
-.modifyTital{
-  font-size:xx-large;
+.modifyTital {
+  font-size: xx-large;
   margin: 20px;
   font-weight: bold;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .formpart {
   width: 450px;
-  background-color:whitesmoke;
+  background-color: whitesmoke;
   box-shadow: 4px 3px 20px #3535358c;
   border-radius: 10px;
   padding: 2rem 2rem 4rem;
   margin: 30px auto;
 }
 
-.addkit input{
+.addkit input {
   margin: 10px auto;
   text-align: center;
 }
 
-.updatekit input{
+.updatekit input {
   margin-bottom: 10px;
 }
-.formpart input{
+.formpart input {
   display: block;
 }
 
-.formpart form{
+.formpart form {
   left: 50%;
 }
 
 .formpart form h2 {
-
-  font-family: 'Libre Baskerville', serif;
+  font-family: "Libre Baskerville", serif;
   font-size: 35px;
   margin-bottom: 1rem;
   text-align: center;
@@ -270,8 +268,7 @@ body {
 }
 
 label {
-  
-  font-family: 'Libre Baskerville', serif;
+  font-family: "Libre Baskerville", serif;
   font-size: 15px;
   display: block;
 }
@@ -288,7 +285,7 @@ label {
   font-weight: 500;
 }
 
-.radios{
+.radios {
   display: flex;
 }
 
@@ -312,8 +309,6 @@ label {
   margin-top: 5px;
 }
 
-
-
 .footer {
   background-color: black;
   color: white;
@@ -323,32 +318,31 @@ label {
   justify-content: center;
 }
 
-.footer li{
+.footer li {
   list-style: none;
   color: gainsboro;
 }
 
-.footer ul{
+.footer ul {
   margin: 10px 50px;
-
 }
 
-.footer a{
+.footer a {
   text-decoration: underline;
   color: gainsboro;
 }
 
-.ftital{
+.ftital {
   font-weight: bold;
   font-size: 18px;
   font-style: italic;
   margin-bottom: 15px;
 }
 
-.copyright{
+.copyright {
   background-color: black;
   color: gainsboro;
-  text-align:center;
+  text-align: center;
   font-size: 16px;
 }
 
@@ -368,50 +362,14 @@ label {
   font-size: larger;
 }
 
-
-.welcome{
+.welcome {
   height: 48vh;
   width: 100vw;
 }
 
-/*add and update mealkit data form*/ 
+/*add and update mealkit data form*/
 
-.mainForm{
-  height: 110vh;
-width: 98.8vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  background-size: cover;
-  background-color: #fff;
-  position: relative;
-}
-
-.addform {
-  width: 450px;
-  background-color:whitesmoke;
-  box-shadow: 4px 3px 20px #3535358c;
-  border-radius: 10px;
-  padding: 2rem 2rem 4rem;
-}
-
-.addform form h2 {
-
-  font-family: 'Libre Baskerville', serif;
-  font-size: 35px;
-  margin-bottom: 1rem;
-  text-align: center;
-  font-weight: 600;
-}
-
-.mainForm{
-  display: table;
-  clear: both;
-
-}
-
-.mainForm{
+.mainForm {
   height: 110vh;
   width: 98.8vw;
   display: flex;
@@ -423,6 +381,38 @@ width: 98.8vw;
   position: relative;
 }
 
+.addform {
+  width: 450px;
+  background-color: whitesmoke;
+  box-shadow: 4px 3px 20px #3535358c;
+  border-radius: 10px;
+  padding: 2rem 2rem 4rem;
+}
+
+.addform form h2 {
+  font-family: "Libre Baskerville", serif;
+  font-size: 35px;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.mainForm {
+  display: table;
+  clear: both;
+}
+
+.mainForm {
+  height: 110vh;
+  width: 98.8vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  background-size: cover;
+  background-color: #fff;
+  position: relative;
+}
 
 .addform {
   width: 450px;

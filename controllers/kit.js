@@ -13,7 +13,7 @@ router.get("/modify", (req, res) => {
         })
 })
 
-router.get("/add",(req, res) => {
+router.get("/add", (req, res) => {
     res.render("kit/add");
 })
 
@@ -66,7 +66,7 @@ router.post("/add", (req, res) => {
         })
 });
 
-router.get("/update/:id",(req, res) => {
+router.get("/update/:id", (req, res) => {
     let kitid = req.params.id;
     mealKitModel.find({ _id: kitid }).lean().exec()
         .then((kit) => {
@@ -80,54 +80,54 @@ router.get("/update/:id",(req, res) => {
 router.post("/update", (req, res) => {
     let saved_id;
     mealKitModel.find({ tital: req.body.Title })
-    .count({}, (err, count) => {
-        if (count != 1) {
-            res.render("partials/err", {
-                error: "Can not find mealkit"
-            })
-        }
-    })
+        .count({}, (err, count) => {
+            if (count != 1) {
+                res.render("partials/err", {
+                    error: "Can not find mealkit"
+                })
+            }
+        })
 
     mealKitModel.find({ tital: req.body.Title })
-    .then(kit => {
-        console.log(kit._id);
-        saved_id = kit._id;
-    
+        .then(kit => {
+            console.log(kit._id);
+            saved_id = kit._id;
 
-    if (path.parse(req.files.pic.name).ext == '.jpeg' || path.parse(req.files.pic.name).ext == '.jpg' || path.parse(req.files.pic.name).ext == ".HEIF" || path.parse(req.files.pic.name).ext == ".png") {
-        let uniqueName = `/image-pic-${saved_id}${path.parse(req.files.pic.name).ext}`;
 
-        req.files.pic.mv(`public/pictures/${uniqueName}`)
-            .then(() => {
-                uniqueName = "/pictures" + uniqueName;
-                mealKitModel.updateOne({
-                    tital: req.body.Title
-                }, {
-                    tital: req.body.Title,
-                    ingrediants: req.body.ing,
-                    descrition: req.body.des,
-                    category: req.body.cat,
-                    price: req.body.price,
-                    cooking_time: req.body.time,
-                    serving: req.body.ser,
-                    calories_per_serving: req.body.cal,
-                    top_meal: req.body.top,
-                    image_url: uniqueName
-                })
+            if (path.parse(req.files.pic.name).ext == '.jpeg' || path.parse(req.files.pic.name).ext == '.jpg' || path.parse(req.files.pic.name).ext == ".HEIF" || path.parse(req.files.pic.name).ext == ".png") {
+                let uniqueName = `/image-pic-${saved_id}${path.parse(req.files.pic.name).ext}`;
+
+                req.files.pic.mv(`public/pictures/${uniqueName}`)
                     .then(() => {
-                        console.log("Mealkit updated");
-                        res.redirect("/");
-                    })
-                    .catch(err => {
-                        console.log("Error updating mealkit: " + err);
-                        res.redirect("/");
-                    })
-            });
-        }
-        else {
-            res.send('Please enter .jpeg or .jpg formate picture');
-        }
-    })
+                        uniqueName = "/pictures" + uniqueName;
+                        mealKitModel.updateOne({
+                            tital: req.body.Title
+                        }, {
+                            tital: req.body.Title,
+                            ingrediants: req.body.ing,
+                            descrition: req.body.des,
+                            category: req.body.cat,
+                            price: req.body.price,
+                            cooking_time: req.body.time,
+                            serving: req.body.ser,
+                            calories_per_serving: req.body.cal,
+                            top_meal: req.body.top,
+                            image_url: uniqueName
+                        })
+                            .then(() => {
+                                console.log("Mealkit updated");
+                                res.redirect("/");
+                            })
+                            .catch(err => {
+                                console.log("Error updating mealkit: " + err);
+                                res.redirect("/");
+                            })
+                    });
+            }
+            else {
+                res.send('Please enter .jpeg or .jpg formate picture');
+            }
+        })
 })
 
 

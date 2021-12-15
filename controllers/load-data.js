@@ -4,13 +4,13 @@ const router = express.Router();
 
 //http:/localhost:8080/load-data/meal-kits
 //loads mealkit data to the dasabase
-router.get("/meal-kits",(req,res) => {
-    if(req.session && req.session.user && req.session.dashbord == "Data Entry Clerk"){
+router.get("/meal-kits", (req, res) => {
+    if (req.session && req.session.user && req.session.dashbord == "Data Entry Clerk") {
         mealKitModel.find().count({}, (err, count) => {
-            if(err){
+            if (err) {
                 res.send("coundn't find: " + err);
             }
-            else if(count === 0){
+            else if (count === 0) {
                 var mealkit = [
                     {
                         tital: "Veg Jalfrezi",
@@ -134,27 +134,27 @@ router.get("/meal-kits",(req,res) => {
                     }
                 ];
                 mealKitModel.collection.insertMany(mealkit, (err) => {
-                    if(err){
+                    if (err) {
                         res.render("partials/err", {
-                            error : "Couldn't insert: " + err
+                            error: "Couldn't insert: " + err
                         })
                     }
-                    else{
+                    else {
                         res.render("partials/err", {
-                            error : "sucess, data was loaded!"
+                            error: "sucess, data was loaded!"
                         })
                     }
                 })
             }
-            else{
+            else {
                 res.render("partials/err", {
-                    error : "Data is already loaded"
+                    error: "Data is already loaded"
                 })
             }
-                
+
         })
     }
-    else{
+    else {
         res.render("partials/err", {
             error: "Only Data clerk can add data"
         })

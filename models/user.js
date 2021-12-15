@@ -23,27 +23,27 @@ const userSchema = new Schema({
     }
 });
 
-userSchema.pre("save", function(next) {
+userSchema.pre("save", function (next) {
     let user = this;
 
     // Generate a unique salt.
     bcrypt.genSalt(10)
-    .then(salt => {
-        // Hash the password using the salt.
-        bcrypt.hash(user.password, salt)
-        .then(hashedPwd => {
-            // Password was hashed.
-            // Update the user model and save to the database.
-            user.password = hashedPwd;
-            next();
+        .then(salt => {
+            // Hash the password using the salt.
+            bcrypt.hash(user.password, salt)
+                .then(hashedPwd => {
+                    // Password was hashed.
+                    // Update the user model and save to the database.
+                    user.password = hashedPwd;
+                    next();
+                })
+                .catch(err => {
+                    console.log(`Error occurred when hashing ... ${err}`);
+                })
         })
         .catch(err => {
-            console.log(`Error occurred when hashing ... ${err}`);    
+            console.log(`Error occurred when salting ... ${err}`);
         })
-    })
-    .catch(err => {
-        console.log(`Error occurred when salting ... ${err}`);
-    })
 });
 
 const userModel = mongoose.model("users", userSchema);

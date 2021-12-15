@@ -18,5 +18,9 @@
     "express-handlebars": "^5.3.4",
     "express-session": "^1.17.2",
     "mongoose": "^6.0.13"
+  },
+  "devDependencies": {
+    "eslint": "^8.4.1",
+    "prettier": "2.5.1"
   }
 }

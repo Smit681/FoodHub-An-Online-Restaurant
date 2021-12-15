@@ -1,44 +1,47 @@
 <style>
-    .kitTitle{
-        background-color: khaki;
-        font-size: 55px;
-        color: red;
-        border-bottom: 4px solid lavender;
-    }
-    .kitbottom{
-        border-top: 4px solid lavender;
-        background-color: khaki;
-    }
-    span{
-        color: red;
-        font-size: 30px;    
-        font-family: cursive;
-    }
-    .short-div{
-        font-family: cursive;
-        font-size: 20px;
-    }
+  .kitTitle{ background-color: khaki; font-size: 55px; color: red;
+  border-bottom: 4px solid lavender; } .kitbottom{ border-top: 4px solid
+  lavender; background-color: khaki; } span{ color: red; font-size: 30px;
+  font-family: cursive; } .short-div{ font-family: cursive; font-size: 20px; }
 </style>
- <div class="container-fluid" >
-        <div class="row text-center">
-            <div class="col-12 kitTitle"; style="font-family: 'Lobster', cursive;">{{a.tital}}</div>    
-        </div>
-        <div class="row">
-            <div class="col-3">
-                <div class="short-div"><span>Description: </span> <br>{{a.descrition}}</div>
-                <br><br><br>
-                <div class="short-div"><span>Category: </span><br>{{a.category}}</div>
-            </div>
-            <div class="col-6 imgdiv" ><img src="{{a.image_url}}" style="height:auto; width:40vw" alt=""></div>
-            <div class="col-3">
-                <div class="short-div" ><span>Price:</span><br>${{a.price}}</div>
-                <br><br><br><br>
-                <div class="short-div"><span>Cooking time: </span><br>{{a.cooking_time}}</div>
-            </div>
-        </div>
-        <div class="row fs-2 kitbottom">
-            <div class="col-4"> <span>Servings: </span> {{a.serving}}</div>
-            <div class="col-4"> <span>Calories per serving:</span> {{a.calories_per_serving}}</div>
-            <div class="col-4 text-end"><button type="button" class="btn btn-danger btn-lg " style="margin: 5px;">Add to cart</button></div>
-        </div>
+<div class="container-fluid">
+  <div class="row text-center">
+    <div
+      class="col-12 kitTitle"
+      ;
+      style="font-family: 'Lobster', cursive;"
+    >{{a.tital}}</div>
+  </div>
+  <div class="row">
+    <div class="col-3">
+      <div class="short-div"><span>Description: </span>
+        <br />{{a.descrition}}</div>
+      <br /><br /><br />
+      <div class="short-div"><span>Category: </span><br />{{a.category}}</div>
     </div>
+    <div class="col-6 imgdiv"><img
+        src="{{a.image_url}}"
+        style="height:auto; width:40vw"
+        alt=""
+      /></div>
+    <div class="col-3">
+      <div class="short-div"><span>Price:</span><br />${{a.price}}</div>
+      <br /><br /><br /><br />
+      <div class="short-div"><span>Cooking time: </span><br
+        />{{a.cooking_time}}</div>
+    </div>
+  </div>
+  <div class="row fs-2 kitbottom">
+    <div class="col-4"> <span>Servings: </span> {{a.serving}}</div>
+    <div class="col-4">
+      <span>Calories per serving:</span>
+      {{a.calories_per_serving}}</div>
+    <div class="col-4 text-end">
+      <button
+        type="button"
+        class="btn btn-danger btn-lg"
+        style="margin: 5px;"
+        onclick="window.location.href = '/cart/add-kit/{{a._id}}'"
+      >Add to cart</button></div>
+  </div>
+</div>

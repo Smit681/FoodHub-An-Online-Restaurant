@@ -94,16 +94,16 @@ router.post("/registration", (req, res) => {
 });
 
 //Set up the customer dashbord
-router.get("/dashbord/customer", (req,res) => {
-    res.render("dashbord/customer",{
-        dashbord : req.session.dashbord
+router.get("/dashbord/customer", (req, res) => {
+    res.render("dashbord/customer", {
+        dashbord: req.session.dashbord
     });
 })
 
 //Set up the data clerk dashbord
-router.get("/dashbord/data_cleak", (req,res) => {
-    res.render("dashbord/data_cleak",{
-        dashbord : req.session.dashbord
+router.get("/dashbord/data_cleak", (req, res) => {
+    res.render("dashbord/data_cleak", {
+        dashbord: req.session.dashbord
     });
 })
 
@@ -149,10 +149,12 @@ router.post("/sign-in", (req, res) => {
                                 // Create a new session and store the user document (object)
                                 // to the session.
                                 req.session.user = user;
+                                req.session.cart = {};
+                                req.session.cart.userid = user._id;
                                 req.session.dashbord = choose;
-                                if(req.session.dashbord == "Customer")
+                                if (req.session.dashbord == "Customer")
                                     res.redirect("/user/dashbord/customer");
-                                else{
+                                else {
                                     res.redirect("/user/dashbord/data_cleak");
                                 }
                             }
