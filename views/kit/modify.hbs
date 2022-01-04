@@ -1,20 +1,29 @@
-<button class="modifyTital" onclick="window.location.href= '/kit/add'">Add
-  Mealkit</button>
+<div class="tital">Add, Update or Delete mealkit.</div>
+<ul class="mlist">
+  <li><span class="decr">.</span>
+    <button
+      class="modifyTital btn btn-outline-dark"
+      onclick="window.location.href= '/kit/add'"
+    >Add New Mealkit</button>
+  </li>
+  <li>
+    <span class="decr">.</span>
+    <span class="ud">Update or Delete existing mealkit</span>
+    <ol class="exmki">
+      {{#each kits}}
+        <div>
+          <li>{{this.tital}}</li>
+          <button
+            class="btn btn-outline-dark"
+            onclick="window.location.href='/kit/update/{{this._id}}'"
+          >Update</button>
+          <button
+            class="btn btn-outline-dark"
+            onclick="window.location.href='/kit/update/{{this._id}}'"
+          >Delete</button>
+        </div>
 
-<div class="tital" style="text-align: left;">
-  Mealkits
-</div>
-<div>
-  <ol>
-    {{#each kits}}
-      <div>
-        <li>{{this.tital}}</li>
-        <button
-          onclick="window.location.href='/kit/update/{{this._id}}'"
-        >Update</button>
-      </div>
-
-    {{/each}}
-  </ol>
-
-</div>
+      {{/each}}
+    </ol>
+  </li>
+</ul>

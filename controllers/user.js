@@ -153,9 +153,9 @@ router.post("/sign-in", (req, res) => {
                                 req.session.cart.userid = user._id;
                                 req.session.dashbord = choose;
                                 if (req.session.dashbord == "Customer")
-                                    res.redirect("/user/dashbord/customer");
+                                    res.redirect("/onthemenu");
                                 else {
-                                    res.redirect("/user/dashbord/data_cleak");
+                                    res.redirect("/kit/modify");
                                 }
                             }
                             else {

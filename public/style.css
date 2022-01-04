@@ -3,74 +3,25 @@
   margin: 0;
 }
 
-.header {
-  background-color: rgba(0, 0, 0, 0.849);
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  align-items: center;
-}
-
-.left {
-  display: flex;
-}
-
-.right {
-  display: flex;
-}
-
-.webname {
-  padding: 1px 0px 0px 20px;
-  font-family: "Pacifico", cursive;
-  font-size: 33px;
-  color: red;
-}
-
-.header a {
-  float: left;
+.sn {
+  margin: 2px;
   color: white;
-  /* text-align: center; */
-  padding: 12px;
-  text-decoration: none;
-  font-size: 18px;
-  border-radius: 4px;
 }
-
-.logo {
-  border-radius: 50%;
-  height: 50px;
-}
-
-.header a:hover {
-  background-color: rgba(221, 221, 221, 0.466);
-  color: aqua;
-}
-
-.middle a {
-  font-size: 20px;
+.sn:hover {
   font-weight: bold;
+  color: white;
 }
-
-.right a {
-  background-color: red;
-  margin: 0 5px;
+.mdl {
+  color: white;
 }
-
-@media all and (max-width: 650px) {
-  .header {
-    flex-direction: column;
-    display: inline-block;
-  }
-  .left img {
-    margin: auto 0px auto auto;
-  }
-  .left div {
-    margin: auto auto auto 0px;
-  }
-  .right {
-    float: right;
-  }
+.mdl:hover {
+  font-weight: bold;
+  color: white;
+}
+.webname {
+  font-family: "Pacifico", cursive;
+  color: red;
+  font-size: 33px;
 }
 
 .hero {
@@ -86,10 +37,12 @@
 
 .subimage {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
   border: 4px solid black;
   height: 380px;
+  top: 28px;
+  border-radius: 50%;
+  position: relative;
 }
 
 .slides {
@@ -137,11 +90,11 @@
   font-family: "Lobster", cursive;
   color: darkblue;
   font-size: 45px;
-  padding: 8px 12px;
   position: absolute;
   bottom: 40px;
   width: 100%;
   text-align: center;
+  margin-top: 10px;
 }
 
 .tital {
@@ -206,10 +159,28 @@ body {
   text-align: center;
 }
 
-body {
-  font-family: "Roboto", sans-serif !important;
-  margin: 0;
-  padding: 0;
+@media only screen and (max-width: 600px) {
+  .cards {
+    width: 160px;
+  }
+  .card-img {
+    height: 160px;
+    width: 160px;
+  }
+  .Centeredtext {
+    font-size: 60px;
+  }
+  .prev,
+  .next {
+    margin: -22px 20px;
+  }
+
+  .footer ul {
+    padding: 0px;
+  }
+  .kitimg {
+    height: 100px;
+  }
 }
 
 /*Styling Form box part*/
@@ -243,9 +214,15 @@ body {
   margin: 30px auto;
 }
 
-.addkit input {
-  margin: 10px auto;
-  text-align: center;
+.addkit div {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.addkit div label {
+  min-width: 120px;
+  margin: 5px;
 }
 
 .updatekit input {
@@ -324,7 +301,7 @@ label {
 }
 
 .footer ul {
-  margin: 10px 50px;
+  padding: 10px 50px;
 }
 
 .footer a {
@@ -422,4 +399,38 @@ label {
   display: inline-block;
   margin-left: 12rem;
   margin-bottom: 10rem;
+}
+
+.mlist {
+  list-style: none;
+}
+
+.ud {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  margin-left: 1rem;
+}
+
+.decr {
+  font-size: 50px;
+  font-weight: bold;
+  color: red;
+  margin-right: 0.5rem;
+}
+
+.exmki {
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+}
+
+.exmki div {
+  min-width: 350px;
+  display: flex;
+  align-items: center;
+  margin: 20px;
+}
+.exmki div button {
+  margin: 0px 5px;
 }

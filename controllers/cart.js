@@ -6,14 +6,20 @@ const e = require("express");
 const router = express.Router();
 
 router.get("/display/:id", (req, res) => {
-    let kitid = req.params.id;
-    mealKitmodel.find({ _id: kitid }).lean().exec()
-        .then(kit => {
-            let a = kit[0]
-            res.render("cart/display", {
-                a
+    if (req.session && req.session.user) {
+        let kitid = req.params.id;
+        mealKitmodel.find({ _id: kitid }).lean().exec()
+            .then(kit => {
+                let a = kit[0]
+                res.render("cart/display", {
+                    a
+                })
             })
-        })
+    }
+    else {
+        res.redirect("/user/sign-in");
+    }
+
 })
 
 

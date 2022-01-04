@@ -5,12 +5,18 @@ const path = require("path");
 const mealKitModel = require("../models/kit");
 
 router.get("/modify", (req, res) => {
-    mealKitModel.find().lean().exec()
-        .then((kits) => {
-            res.render("kit/modify", {
-                kits
-            });
-        })
+    if (req.session && req.session.user) {
+        mealKitModel.find().lean().exec()
+            .then((kits) => {
+                res.render("kit/modify", {
+                    kits
+                });
+            })
+    }
+    else {
+        res.redirect("/user/sign-in");
+    }
+
 })
 
 router.get("/add", (req, res) => {
@@ -18,6 +24,7 @@ router.get("/add", (req, res) => {
 })
 
 router.post("/add", (req, res) => {
+    console.log(req.body[8]);
     let newkit = new mealKitModel({
         tital: req.body.Title,
         ingrediants: req.body.ing,
@@ -27,39 +34,36 @@ router.post("/add", (req, res) => {
         cooking_time: req.body.time,
         serving: req.body.ser,
         calories_per_serving: req.body.cal,
-        top_meal: req.body.top,
+        top_meal: req.body.choose,
         image_url: "temp"
     });
 
     newkit.save()
         .then((saved) => {
-            if (path.parse(req.files.pic.name).ext == '.jpeg' || path.parse(req.files.pic.name).ext == '.jpg' || path.parse(req.files.pic.name).ext == ".HEIF" || path.parse(req.files.pic.name).ext == ".png") {
-                // Create a unique name for the image, so it can be stored in the file system.
-                let uniqueName = `/image-pic-${saved._id}${path.parse(req.files.pic.name).ext}`;
 
-                // Copy the image data to a file in the "public/pictures" folder.
-                req.files.pic.mv(`public/pictures/${uniqueName}`)
-                    .then(() => {
-                        uniqueName = "/pictures" + uniqueName;
-                        // Update the kits document so that the name of the image is stored in the document.
-                        mealKitModel.updateOne({
-                            _id: saved._id
-                        }, {
-                            image_url: uniqueName
+            // Create a unique name for the image, so it can be stored in the file system.
+            let uniqueName = `/image-pic-${saved._id}${path.parse(req.files.pic.name).ext}`;
+
+            // Copy the image data to a file in the "public/pictures" folder.
+            req.files.pic.mv(`public/pictures/${uniqueName}`)
+                .then(() => {
+                    uniqueName = "/pictures" + uniqueName;
+                    // Update the kits document so that the name of the image is stored in the document.
+                    mealKitModel.updateOne({
+                        _id: saved._id
+                    }, {
+                        image_url: uniqueName
+                    })
+                        .then(() => {
+                            console.log("User document was updated with the profile picture.");
+                            res.redirect("/");
                         })
-                            .then(() => {
-                                console.log("User document was updated with the profile picture.");
-                                res.redirect("/");
-                            })
-                            .catch(err => {
-                                console.log(`Error updating the user's profile picture ... ${err}`);
-                                res.redirect("/");
-                            })
-                    });
-            }
-            else {
-                res.send('Please enter .jpeg or .jpg formate picture');
-            }
+                        .catch(err => {
+                            console.log(`Error updating the user's profile picture ... ${err}`);
+                            res.redirect("/");
+                        })
+                });
+
         })
         .catch((err) => {
             console.log(err);
@@ -129,6 +133,7 @@ router.post("/update", (req, res) => {
             }
         })
 })
+
 
 
 module.exports = router;

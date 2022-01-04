@@ -1,32 +1,65 @@
-<header>
-  <nav class="header">
-    <div class="left">
-      <img class="logo" src="/pictures/logo.png" alt="" height="150" />
-      <div class="webname">FoodHub</div>
-    </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <img
+      src="/pictures/logo.png"
+      alt=""
+      style="border-radius: 50%; margin-right: 5px; height: 58px;"
+    />
+    <a class="navbar-brand" href="#">
 
-    <div class="middle">
-      <a href="/">Home</a>
-      <a href="/onthemenu">On the menu</a>
-    </div>
-
-    <div class="right">
-
-      {{#if user}}
-        {{#if can}}
-          <a href="/kit/modify">Modify Mealkit</a>
-        {{else}}
+      <span class="webname">FoodHub</span></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <button
+          class="btn nav-item btn-lg mdl"
+          onclick="window.location.href = '/'"
+        >Home</button>
+        <button
+          class="btn nav-item btn-lg mdl"
+          onclick="window.location.href = '/onthemenu'"
+        >On the menu</button>
+      </div>
+      <div class="navbar-nav ms-auto mb-2 mb-lg-0">
+        {{#if user}}
+          {{#if can}}
+            <button
+              class="btn nav-item bg-danger bg-gradient btn-lg sn"
+              onclick="window.location.href = '/kit/modify'"
+            >Modify Mealkit</button>
+          {{else}}
+            <button
+              class="btn nav-item bg-danger bg-gradient btn-lg sn"
+              onclick="window.location.href = '/cart/shopping-cart'"
+            >shopping cart</button>
+          {{/if}}
           <button
-            class="btn"
-            style="background-color: red; color:white"
-            onclick="window.location.href = '/cart/shopping-cart' "
-          >shopping cart</button>
+            class="btn nav-item bg-danger bg-gradient btn-lg sn"
+            onclick="window.location.href = '/user/logout'"
+          >Logout</button>
+        {{else}}
+
+          <button
+            class="btn nav-item bg-danger bg-gradient btn-lg sn"
+            onclick="window.location.href = '/user/sign-in'"
+          >Signin</button>
+          <button
+            class="btn nav-item bg-danger bg-gradient btn-lg sn"
+            onclick="window.location.href = '/user/registration'"
+          >SignUp</button>
         {{/if}}
-        <a href="/user/logout">Logout</a>
-      {{else}}
-        <a href="/user/sign-in">Login</a>
-        <a href="/user/registration">Register</a>
-      {{/if}}
+      </div>
+
     </div>
-  </nav>
-</header>
+  </div>
+</nav>
