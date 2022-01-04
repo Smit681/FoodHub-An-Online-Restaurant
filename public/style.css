@@ -39,7 +39,7 @@
   display: block;
   margin: auto;
   border: 4px solid black;
-  height: 380px;
+  height: 60vh;
   top: 28px;
   border-radius: 50%;
   position: relative;
@@ -180,6 +180,10 @@ body {
   }
   .kitimg {
     height: 100px;
+  }
+  .subimage {
+    top: 100px;
+    height: 25vh;
   }
 }
 
